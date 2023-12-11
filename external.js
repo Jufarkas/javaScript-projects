@@ -1,32 +1,30 @@
-const answers = ["Rock", "Paper", "Scissors"];
-const result = ["Paper beats Rock", "Rock beats Scissors", "Scissors beats Paper", "It's a Tie!"];
-
+const ANSWERS = ["rock", "paper", "scissors"];
+const RESULT = ["Paper beats Rock", "Rock beats Scissors", "Scissors beats Paper", "It's a Tie!"];
+const playerSelection = prompt("Input your champion: Rock, Paper, or Scissors?").toLowerCase();
 
 function getComputerChoice() {
-    return answers[Math.floor(Math.random() * answers.length)] + " is the computer's choice";
+    const choice = ANSWERS[Math.floor(Math.random() * ANSWERS.length)];
+    return choice;
 };
 
-
-function getPlayerChoice() {
-    return answers[Math.floor(Math.random() * answers.length)] + " is the player's choice";
-};
-
-
+const computerSelection = getComputerChoice();
 
 function startRound (playerSelection, computerSelection) {
-    if (playerSelection == "Rock" && computerSelection == "Paper") {
-        return result[0] + ", computer wins!";
-    } else if  (playerSelection == "Paper" && computerSelection == "Rock") {
-        return result[0] + ", player wins!";
-    } else if (playerSelection == "Scissors" && computerSelection == "Rock") {
-        return result[1] + ", computer wins!";
-    } else if (playerSelection == "Rock" && computerSelection == "Scissors") {
-        return result[1] + ", player wins!";
-    } else if (playerSelection == "Paper" && computerSelection == "Scissors") {
-        return result[2] + ", computer wins!";
-    } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
-        return result[2] + ", player wins!";
-    } else if (playerSelection == "Rock" && computerSelection == "Rock" || playerSelection == "Paper" && computerSelection == "Paper" || playerSelection == "Scissors" && computerSelection == "Scissors") {
-        return result[3];
+    if (playerSelection == "rock" && computerSelection == "paper") {
+        return RESULT[0] + ", computer wins!";
+    } else if  (playerSelection == "paper" && computerSelection == "rock") {
+        return RESULT[0] + ", player wins!";
+    } else if (playerSelection == "scissors" && computerSelection == "rock") {
+        return RESULT[1] + ", computer wins!";
+    } else if (playerSelection == "rock" && computerSelection == "scissors") {
+        return RESULT[1] + ", player wins!";
+    } else if (playerSelection == "paper" && computerSelection == "scissors") {
+        return RESULT[2] + ", computer wins!";
+    } else if (playerSelection == "scissors" && computerSelection == "paper") {
+        return RESULT[2] + ", player wins!";
+    } else if (playerSelection == "rock" && computerSelection == "rock" || playerSelection == "paper" && computerSelection == "paper" || playerSelection == "scissors" && computerSelection == "scissors") {
+        return RESULT[3];
     }
 }
+
+console.log(startRound(playerSelection, computerSelection));
