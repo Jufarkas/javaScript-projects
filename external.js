@@ -1,15 +1,27 @@
 const ANSWERS = ["rock", "paper", "scissors"];
 const RESULT = ["Paper beats Rock", "Rock beats Scissors", "Scissors beats Paper", "It's a Tie!"];
-const playerSelection = prompt("Input your champion: Rock, Paper, or Scissors?").toLowerCase();
+
 
 function getComputerChoice() {
     const choice = ANSWERS[Math.floor(Math.random() * ANSWERS.length)];
     return choice;
 };
 
-const computerSelection = getComputerChoice();
 
-function startRound (playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection == computerSelection) {
+        return "Mama mia it's a tie";
+    } else if (
+        playerSelection == "rock" && computerSelection == "scissors" || 
+        playerSelection == "paper" && computerSelection == "rock" || 
+        playerSelection == "scissors" && computerSelection == "paper") {
+        return "Player Wins";
+    } else {
+        return "Computer Wins";
+    }
+};
+
+function roundResults(playerSelection, computerSelection) {
     if (playerSelection == "rock" && computerSelection == "paper") {
         return RESULT[0] + ", computer wins!";
     } else if  (playerSelection == "paper" && computerSelection == "rock") {
@@ -27,4 +39,8 @@ function startRound (playerSelection, computerSelection) {
     }
 }
 
-console.log(startRound(playerSelection, computerSelection));
+
+const playerSelection = "rock" //prompt("Input your champion: Rock, Paper, or Scissors?").toLowerCase();
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
+console.log(roundResults(playerSelection, computerSelection))
