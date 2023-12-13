@@ -29,37 +29,15 @@ function getComputerChoice() {
 const computerSelection = getComputerChoice();
 
 
-//********************** RESULT FROM SINGLE ROUND **********************//
-
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection == "rock" && computerSelection == "paper") {
-        return "Computer wins, " + OUTCOME[0] + "!";
-    } else if  (playerSelection == "paper" && computerSelection == "rock") {
-        return "Player wins, " + OUTCOME[0] + "!";
-    } else if (playerSelection == "scissors" && computerSelection == "rock") {
-        return "Computer wins, " + OUTCOME[1] + "!";
-    } else if (playerSelection == "rock" && computerSelection == "scissors") {
-        return "Player wins, " + OUTCOME[1] + "!";
-    } else if (playerSelection == "paper" && computerSelection == "scissors") {
-        return "Computer wins, " + OUTCOME[2] + "!";
-    } else if (playerSelection == "scissors" && computerSelection == "paper") {
-        return "Player wins, " + OUTCOME[2] + "!";
-    } else if (playerSelection == computerSelection) {
-        return OUTCOME[3];
-    }
-};
-
-
-//************ PLAY UNTIL PLAYER OR COMPUTER WIN 5 ROUNDS ************//
+//************* PLAYS UNTIL PLAYER OR COMPUTER WIN 5 ROUNDS *************//
 
 function game() {
     for (let i = 0; i < 100; i++) {
         const playerSelection = "rock" //prompt("Input your champion: Rock, Paper, or Scissors?").toLowerCase();
         const computerSelection = getComputerChoice();
-        // console.log(playRound(playerSelection, computerSelection));
-        // console.log("Player score: " + playerScore);
-        // console.log("Computer score: " + computerScore);
         
+        // console.log(individualRoundResult(playerSelection, computerSelection));
+
         for (let x = 0; x < 1; x++) {
             if (confirmWinner(playerSelection, computerSelection) == "player") {
                 playerScore++;
@@ -75,7 +53,7 @@ function game() {
 };
 
 
-//************************** SIMPLISTIC OUTCOME **************************//
+//******** SIMPLISTIC FUNCTION TO RETURN "WINNER" FOR EACH game() ********//
 
 function confirmWinner(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
@@ -89,3 +67,30 @@ function confirmWinner(playerSelection, computerSelection) {
         return "computer";
     }
 };
+
+
+
+// ****************** DISPLAY INDIVIDUAL ROUND OUTCOMES ****************** //
+// [Un-comment the below function & the console.log in 'game()' to view] //
+
+/*
+
+function individualRoundResult(playerSelection, computerSelection) {
+    if (playerSelection == "rock" && computerSelection == "paper") {
+        return "Computer wins, " + OUTCOME[0] + "!";
+    } else if  (playerSelection == "paper" && computerSelection == "rock") {
+        return "Player wins, " + OUTCOME[0] + "!";
+    } else if (playerSelection == "scissors" && computerSelection == "rock") {
+        return "Computer wins, " + OUTCOME[1] + "!";
+    } else if (playerSelection == "rock" && computerSelection == "scissors") {
+        return "Player wins, " + OUTCOME[1] + "!";
+    } else if (playerSelection == "paper" && computerSelection == "scissors") {
+        return "Computer wins, " + OUTCOME[2] + "!";
+    } else if (playerSelection == "scissors" && computerSelection == "paper") {
+        return "Player wins, " + OUTCOME[2] + "!";
+    } else if (playerSelection == computerSelection) {
+        return OUTCOME[3];
+    }
+}; 
+
+*/
