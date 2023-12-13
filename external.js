@@ -1,10 +1,23 @@
-const ANSWERS = ["rock", "paper", "scissors"];
-const OUTCOME = ["Paper beats Rock", "Rock beats Scissors", "Scissors beats Paper", "Womp Womp, it's a Tie!"];
+const ANSWERS = [
+    "rock", 
+    "paper", 
+    "scissors"
+];
+
+const OUTCOME = [
+    "Paper beats Rock", 
+    "Rock beats Scissors", 
+    "Scissors beats Paper", 
+    "Womp Womp, it's a Tie!"
+];
+
 let playerScore = 0;
 let computerScore = 0;
+
 game();
 console.log("Player final score: " + playerScore);
 console.log("Computer final score: " + computerScore);
+
 
 //********** SELECTS COMPUTER'S CHOICE AND ASSIGNS ACCORDINGLY **********//
 
@@ -16,9 +29,7 @@ function getComputerChoice() {
 const computerSelection = getComputerChoice();
 
 
-
 //********************** RESULT FROM SINGLE ROUND **********************//
-
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == "rock" && computerSelection == "paper") {
@@ -36,16 +47,16 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection == computerSelection) {
         return OUTCOME[3];
     }
-}
+};
 
 
 //************ PLAY UNTIL PLAYER OR COMPUTER WIN 5 ROUNDS ************//
 
 function game() {
     for (let i = 0; i < 100; i++) {
-        const playerSelection = prompt("Input your champion: Rock, Paper, or Scissors?").toLowerCase()
+        const playerSelection = "rock" //prompt("Input your champion: Rock, Paper, or Scissors?").toLowerCase();
         const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
+        // console.log(playRound(playerSelection, computerSelection));
         // console.log("Player score: " + playerScore);
         // console.log("Computer score: " + computerScore);
         
@@ -61,8 +72,7 @@ function game() {
             return console.log("Computer Wins!");
         }
     }
-}
-
+};
 
 
 //************************** SIMPLISTIC OUTCOME **************************//
