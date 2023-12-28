@@ -14,10 +14,11 @@ const OUTCOME = [
 let playerScore = 0;
 let computerScore = 0;
 
+/*
 game();
 console.log("Player final score: " + playerScore);
 console.log("Computer final score: " + computerScore);
-
+*/
 
 //********** SELECTS COMPUTER'S CHOICE AND ASSIGNS ACCORDINGLY **********//
 
@@ -29,7 +30,33 @@ function getComputerChoice() {
 const computerSelection = getComputerChoice();
 
 
+//************************** THE BUTTONS **************************//
+
+const rockBtn = document.querySelector(".rock");
+
+rockBtn.addEventListener("click", () => {
+    alert("Rock");
+});
+
+const paperBtn = document.querySelector(".paper");
+
+paperBtn.addEventListener("click", () => {
+    alert("Paper");
+});
+
+
+const scissorsBtn = document.querySelector(".scissors");
+
+scissorsBtn.addEventListener("click", () => {
+    alert("Scissors");
+});
+
+
+
+
 //************* PLAYS UNTIL PLAYER OR COMPUTER WIN 5 ROUNDS *************//
+
+/*
 
 function game() {
     for (let i = 0; i < 100; i++) {
@@ -53,7 +80,7 @@ function game() {
 };
 
 
-//******** SIMPLISTIC FUNCTION TO RETURN "WINNER" FOR EACH game() ********//
+//******** SIMPLISTIC FUNCTION TO RETURN "WINNER" FOR EACH game() ********
 
 function confirmWinner(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
@@ -68,7 +95,7 @@ function confirmWinner(playerSelection, computerSelection) {
     }
 };
 
-
+*/
 
 // ****************** DISPLAY INDIVIDUAL ROUND OUTCOMES ****************** //
 // [Un-comment the below function & the console.log in 'game()' to view] //
