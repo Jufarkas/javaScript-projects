@@ -36,7 +36,7 @@ function game() {
         const playerSelection = "rock" //prompt("Input your champion: Rock, Paper, or Scissors?").toLowerCase();
         const computerSelection = getComputerChoice();
         
-        // console.log(individualRoundResult(playerSelection, computerSelection));
+        //console.log(individualRoundResult(playerSelection, computerSelection));
 
         for (let x = 0; x < 1; x++) {
             if (confirmWinner(playerSelection, computerSelection) == "player") {
@@ -73,8 +73,8 @@ function confirmWinner(playerSelection, computerSelection) {
 // ****************** DISPLAY INDIVIDUAL ROUND OUTCOMES ****************** //
 // [Un-comment the below function & the console.log in 'game()' to view] //
 
-/*
 
+/*
 function individualRoundResult(playerSelection, computerSelection) {
     if (playerSelection == "rock" && computerSelection == "paper") {
         return "Computer wins, " + OUTCOME[0] + "!";
@@ -92,5 +92,4 @@ function individualRoundResult(playerSelection, computerSelection) {
         return OUTCOME[3];
     }
 }; 
-
 */
