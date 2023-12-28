@@ -14,9 +14,9 @@ const OUTCOME = [
 let playerScore = 0;
 let computerScore = 0;
 
-// game();
-// console.log("Player final score: " + playerScore);
-// console.log("Computer final score: " + computerScore);
+let gameButtons = document.querySelector('.gameButtons');
+let resetGame = document.querySelector('.resetGame');
+
 
 
 //********** SELECTS COMPUTER'S CHOICE AND ASSIGNS ACCORDINGLY **********//
@@ -79,6 +79,7 @@ scissorsBtn.addEventListener("click", () => {
 });
 
 
+//****************** CONFIRMS ROUND WINNER ******************//
 
 function checkResults (playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
@@ -94,16 +95,40 @@ function checkResults (playerSelection, computerSelection) {
 };
 
 
+//********** CONFIRMS OVERALL WINNER AND REMOVES/ADDS BUTTONS  **********//
+
+let resetButton = document.createElement("button");
+
 function confirmWinner(){
     if (playerScore == 5) {
         document.querySelector(".winner").textContent = "Player Wins!";
+        rockBtn.remove(); scissorsBtn.remove(); paperBtn.remove();
+        resetGame.appendChild(resetButton);
+        resetButton.textContent = "RESET GAME";
     } else if (computerScore == 5) {
         document.querySelector(".winner").textContent = "Computer Wins!";
+        rockBtn.remove(); scissorsBtn.remove(); paperBtn.remove();
+        resetGame.appendChild(resetButton);
+        resetButton.textContent = "RESET GAME";
     }
 };
 
+resetButton.addEventListener('click', () => {
+    playerScore = 0;
+    document.querySelector(".playScore").textContent = 0;
+    computerScore = 0;
+    document.querySelector(".compScore").textContent = 0;
+    gameButtons.append(rockBtn);
+    gameButtons.append(paperBtn);
+    gameButtons.append(scissorsBtn);
+    resetButton.remove();
+    document.querySelector(".winner").textContent = "";
+});
 
-//************* PLAYS UNTIL PLAYER OR COMPUTER WIN 5 ROUNDS *************//
+
+
+
+//************* AUTO-PLAYS UNTIL PLAYER OR COMPUTER WIN 5 ROUNDS *************//
 
 
 
@@ -127,23 +152,6 @@ function confirmWinner(){
 //         }
 //     }
 // };
-
-
-//******** SIMPLISTIC FUNCTION TO RETURN "WINNER" FOR EACH game() ********//
-
-// function confirmWinner(playerSelection, computerSelection) {
-//     if (playerSelection == computerSelection) {
-//         return "tie";
-//     } else if (
-//         playerSelection == "rock" && computerSelection == "scissors" || 
-//         playerSelection == "paper" && computerSelection == "rock" || 
-//         playerSelection == "scissors" && computerSelection == "paper") {
-//         return "player";
-//     } else {
-//         return "computer";
-//     }
-// };
-
 
 
 // ****************** DISPLAY INDIVIDUAL ROUND OUTCOMES ****************** //
