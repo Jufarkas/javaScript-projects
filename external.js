@@ -44,7 +44,8 @@ rockBtn.addEventListener("click", () => {
         } else if (checkResults(playerSelection, computerSelection) == "computer") {
             computerScore++;
             document.querySelector(".compScore").textContent++;
-        }
+        }     
+        confirmWinner();
 });
 
 
@@ -58,7 +59,8 @@ paperBtn.addEventListener("click", () => {
         } else if (checkResults(playerSelection, computerSelection) == "computer") {
             computerScore++;
             document.querySelector(".compScore").textContent++;
-        }
+        }     
+        confirmWinner();
 });
 
 
@@ -73,6 +75,7 @@ scissorsBtn.addEventListener("click", () => {
             computerScore++;
             document.querySelector(".compScore").textContent++;
         }     
+        confirmWinner();
 });
 
 
@@ -87,6 +90,15 @@ function checkResults (playerSelection, computerSelection) {
         return "player";
     } else {
         return "computer";
+    }
+};
+
+
+function confirmWinner(){
+    if (playerScore == 5) {
+        document.querySelector(".winner").textContent = "Player Wins!";
+    } else if (computerScore == 5) {
+        document.querySelector(".winner").textContent = "Computer Wins!";
     }
 };
 
