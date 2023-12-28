@@ -14,11 +14,10 @@ const OUTCOME = [
 let playerScore = 0;
 let computerScore = 0;
 
-/*
-game();
-console.log("Player final score: " + playerScore);
-console.log("Computer final score: " + computerScore);
-*/
+// game();
+// console.log("Player final score: " + playerScore);
+// console.log("Computer final score: " + computerScore);
+
 
 //********** SELECTS COMPUTER'S CHOICE AND ASSIGNS ACCORDINGLY **********//
 
@@ -27,62 +26,58 @@ function getComputerChoice() {
     return choice;
 };
 
-const computerSelection = getComputerChoice();
+let computerSelection = getComputerChoice();
 
 
-//************************** THE BUTTONS **************************//
+//************************** PLAYER SELECTION **************************//
+
+let playerSelection = "";
+
 
 const rockBtn = document.querySelector(".rock");
-
 rockBtn.addEventListener("click", () => {
-    alert("Rock");
+    computerSelection = getComputerChoice();
+    playerSelection = "rock";
+        if (checkResults(playerSelection, computerSelection) == "player") {
+            playerScore++;
+            document.querySelector(".playScore").textContent++;
+        } else if (checkResults(playerSelection, computerSelection) == "computer") {
+            computerScore++;
+            document.querySelector(".compScore").textContent++;
+        }
 });
 
-const paperBtn = document.querySelector(".paper");
 
+const paperBtn = document.querySelector(".paper");
 paperBtn.addEventListener("click", () => {
-    alert("Paper");
+    computerSelection = getComputerChoice();
+    playerSelection = "paper";
+        if (checkResults(playerSelection, computerSelection) == "player") {
+            playerScore++;
+            document.querySelector(".playScore").textContent++;
+        } else if (checkResults(playerSelection, computerSelection) == "computer") {
+            computerScore++;
+            document.querySelector(".compScore").textContent++;
+        }
 });
 
 
 const scissorsBtn = document.querySelector(".scissors");
-
 scissorsBtn.addEventListener("click", () => {
-    alert("Scissors");
+    computerSelection = getComputerChoice();
+    playerSelection = "scissors";
+        if (checkResults(playerSelection, computerSelection) == "player") {
+            playerScore++;
+            document.querySelector(".playScore").textContent++;
+        } else if (checkResults(playerSelection, computerSelection) == "computer") {
+            computerScore++;
+            document.querySelector(".compScore").textContent++;
+        }     
 });
 
 
 
-
-//************* PLAYS UNTIL PLAYER OR COMPUTER WIN 5 ROUNDS *************//
-
-/*
-
-function game() {
-    for (let i = 0; i < 100; i++) {
-        const playerSelection = "rock" //prompt("Input your champion: Rock, Paper, or Scissors?").toLowerCase();
-        const computerSelection = getComputerChoice();
-        
-        //console.log(individualRoundResult(playerSelection, computerSelection));
-
-        for (let x = 0; x < 1; x++) {
-            if (confirmWinner(playerSelection, computerSelection) == "player") {
-                playerScore++;
-            } else if (confirmWinner(playerSelection, computerSelection) == "computer") {
-                computerScore++;
-            }
-        } if (playerScore == 5) {
-            return console.log("Player Wins!");
-        } else if (computerScore == 5) {
-            return console.log("Computer Wins!");
-        }
-    }
-};
-
-
-//******** SIMPLISTIC FUNCTION TO RETURN "WINNER" FOR EACH game() ********
-
-function confirmWinner(playerSelection, computerSelection) {
+function checkResults (playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
         return "tie";
     } else if (
@@ -95,7 +90,49 @@ function confirmWinner(playerSelection, computerSelection) {
     }
 };
 
-*/
+
+//************* PLAYS UNTIL PLAYER OR COMPUTER WIN 5 ROUNDS *************//
+
+
+
+// function game() {
+//     for (let i = 0; i < 100; i++) {
+
+//         const computerSelection = getComputerChoice();
+        
+//         // console.log(individualRoundResult(playerSelection, computerSelection));
+
+//         for (let x = 0; x < 1; x++) {
+//             if (checkResults(playerSelection, computerSelection) == "player") {
+//                 playerScore++;
+//             } else if (checkResults(playerSelection, computerSelection) == "computer") {
+//                 computerScore++;
+//             }
+//         } if (playerScore == 5) {
+//             return console.log("Player Wins!");
+//         } else if (computerScore == 5) {
+//             return console.log("Computer Wins!");
+//         }
+//     }
+// };
+
+
+//******** SIMPLISTIC FUNCTION TO RETURN "WINNER" FOR EACH game() ********//
+
+// function confirmWinner(playerSelection, computerSelection) {
+//     if (playerSelection == computerSelection) {
+//         return "tie";
+//     } else if (
+//         playerSelection == "rock" && computerSelection == "scissors" || 
+//         playerSelection == "paper" && computerSelection == "rock" || 
+//         playerSelection == "scissors" && computerSelection == "paper") {
+//         return "player";
+//     } else {
+//         return "computer";
+//     }
+// };
+
+
 
 // ****************** DISPLAY INDIVIDUAL ROUND OUTCOMES ****************** //
 // [Un-comment the below function & the console.log in 'game()' to view] //
@@ -120,3 +157,6 @@ function individualRoundResult(playerSelection, computerSelection) {
     }
 }; 
 */
+
+
+
