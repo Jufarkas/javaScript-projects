@@ -16,7 +16,7 @@ let computerScore = 0;
 
 let gameButtons = document.querySelector('.gameButtons');
 let resetGame = document.querySelector('.resetGame');
-
+let roundResult = document.querySelector('.roundResult');
 
 
 //********** SELECTS COMPUTER'S CHOICE AND ASSIGNS ACCORDINGLY **********//
@@ -45,6 +45,7 @@ rockBtn.addEventListener("click", () => {
             computerScore++;
             document.querySelector(".compScore").textContent++;
         }     
+        individualRoundResult(playerSelection, computerSelection);
         confirmWinner();
 });
 
@@ -60,6 +61,7 @@ paperBtn.addEventListener("click", () => {
             computerScore++;
             document.querySelector(".compScore").textContent++;
         }     
+        individualRoundResult(playerSelection, computerSelection);
         confirmWinner();
 });
 
@@ -75,6 +77,7 @@ scissorsBtn.addEventListener("click", () => {
             computerScore++;
             document.querySelector(".compScore").textContent++;
         }     
+        individualRoundResult(playerSelection, computerSelection);
         confirmWinner();
 });
 
@@ -101,11 +104,13 @@ let resetButton = document.createElement("button");
 
 function confirmWinner(){
     if (playerScore == 5) {
+        document.querySelector('.roundResult').textContent = "Your skills are unmatched, champion!";
         document.querySelector(".winner").textContent = "Player Wins!";
         rockBtn.remove(); scissorsBtn.remove(); paperBtn.remove();
         resetGame.appendChild(resetButton);
         resetButton.textContent = "RESET GAME";
     } else if (computerScore == 5) {
+        document.querySelector('.roundResult').textContent = "RNG, am I right?";
         document.querySelector(".winner").textContent = "Computer Wins!";
         rockBtn.remove(); scissorsBtn.remove(); paperBtn.remove();
         resetGame.appendChild(resetButton);
@@ -123,6 +128,7 @@ resetButton.addEventListener('click', () => {
     gameButtons.append(scissorsBtn);
     resetButton.remove();
     document.querySelector(".winner").textContent = "";
+    document.querySelector('.roundResult').textContent = "May the best player win..";
 });
 
 
@@ -158,25 +164,47 @@ resetButton.addEventListener('click', () => {
 // [Un-comment the below function & the console.log in 'game()' to view] //
 
 
-/*
+
 function individualRoundResult(playerSelection, computerSelection) {
     if (playerSelection == "rock" && computerSelection == "paper") {
-        return "Computer wins, " + OUTCOME[0] + "!";
+        document.querySelector('.roundResult').textContent = "Computer wins, " + OUTCOME[0] + "!";
     } else if  (playerSelection == "paper" && computerSelection == "rock") {
-        return "Player wins, " + OUTCOME[0] + "!";
+        document.querySelector('.roundResult').textContent = "Player wins, " + OUTCOME[0] + "!";
     } else if (playerSelection == "scissors" && computerSelection == "rock") {
-        return "Computer wins, " + OUTCOME[1] + "!";
+        document.querySelector('.roundResult').textContent = "Computer wins, " + OUTCOME[1] + "!";
     } else if (playerSelection == "rock" && computerSelection == "scissors") {
-        return "Player wins, " + OUTCOME[1] + "!";
+        document.querySelector('.roundResult').textContent = "Player wins, " + OUTCOME[1] + "!";
     } else if (playerSelection == "paper" && computerSelection == "scissors") {
-        return "Computer wins, " + OUTCOME[2] + "!";
+        document.querySelector('.roundResult').textContent = "Computer wins, " + OUTCOME[2] + "!";
     } else if (playerSelection == "scissors" && computerSelection == "paper") {
-        return "Player wins, " + OUTCOME[2] + "!";
+        document.querySelector('.roundResult').textContent = "Player wins, " + OUTCOME[2] + "!";
     } else if (playerSelection == computerSelection) {
-        return OUTCOME[3];
+        document.querySelector('.roundResult').textContent = OUTCOME[3];
     }
 }; 
-*/
 
 
 
+
+
+
+
+
+
+// function individualRoundResult(playerSelection, computerSelection) {
+//     if (playerSelection == "rock" && computerSelection == "paper") {
+//         return "Computer wins, " + OUTCOME[0] + "!";
+//     } else if  (playerSelection == "paper" && computerSelection == "rock") {
+//         return "Player wins, " + OUTCOME[0] + "!";
+//     } else if (playerSelection == "scissors" && computerSelection == "rock") {
+//         return "Computer wins, " + OUTCOME[1] + "!";
+//     } else if (playerSelection == "rock" && computerSelection == "scissors") {
+//         return "Player wins, " + OUTCOME[1] + "!";
+//     } else if (playerSelection == "paper" && computerSelection == "scissors") {
+//         return "Computer wins, " + OUTCOME[2] + "!";
+//     } else if (playerSelection == "scissors" && computerSelection == "paper") {
+//         return "Player wins, " + OUTCOME[2] + "!";
+//     } else if (playerSelection == computerSelection) {
+//         return OUTCOME[3];
+//     }
+// }; 
